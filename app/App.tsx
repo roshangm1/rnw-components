@@ -10,7 +10,13 @@ const App: React.FC<any> = (props: any) => {
     <ThemeProvider theme={theme}>
       <Box flex={1} justifyContent="center" alignItems="center">
         <Text fontWeight="bold">Hello, World!!</Text>
-        <Button label="Click Me" variant="primary" />
+        <Button
+          label="Click Me"
+          variant="primary"
+          onPress={() => {
+            alert('hello world');
+          }}
+        />
       </Box>
     </ThemeProvider>
   );

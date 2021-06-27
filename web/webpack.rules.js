@@ -2,7 +2,7 @@ module.exports = [
   {
     test: /\.(tsx|ts|jsx|js|mjs)$/,
     exclude: /node_modules/,
-    loader: 'ts-loader',
+    use: 'ts-loader',
   },
   // {
   //   enforce: 'pre',
