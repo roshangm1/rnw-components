@@ -14,11 +14,7 @@ import {
   VariantProps,
 } from '@shopify/restyle';
 import React, {ComponentProps} from 'react';
-import {
-  ActivityIndicator,
-  TouchableOpacity,
-  TouchableOpacityProps,
-} from 'react-native';
+import {ActivityIndicator, Pressable, PressableProps} from 'react-native';
 import {Theme} from '../theme';
 import Text from './Text';
 
@@ -34,9 +30,9 @@ type Props = SpacingProps<Theme> &
   BackgroundColorProps<Theme> &
   BorderProps<Theme> &
   PositionProps<Theme> &
-  TouchableOpacityProps &
+  PressableProps &
   LayoutProps<Theme> &
-  ComponentProps<typeof TouchableOpacity> & {
+  ComponentProps<typeof Pressable> & {
     label: string;
     loading?: boolean;
   } & VariantProps<Theme, 'buttonVariants'>;
@@ -47,7 +43,7 @@ const Button = ({onPress, label, loading, ...rest}: Props) => {
   const props = useRestyle(restyleFunctions, rest);
 
   return (
-    <TouchableOpacity onPress={onPress} {...props}>
+    <Pressable onPress={onPress} {...props}>
       {loading ? (
         <ActivityIndicator
           size="small"
@@ -61,7 +57,7 @@ const Button = ({onPress, label, loading, ...rest}: Props) => {
           {label}
         </Text>
       )}
-    </TouchableOpacity>
+    </Pressable>
   );
 };
 
